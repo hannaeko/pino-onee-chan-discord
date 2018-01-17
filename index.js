@@ -1,13 +1,13 @@
-const Discord = require('discord.js');
-
+const Discord = require('discord.js')
 const config = require('./config')
-const client = new Discord.Client();
-const token = 'NDAzMjAzOTAwOTA5Mjg5NDc0.DUD4rg.oKUDLXGdlmuh9lxXdER0NzefBqs';
+
+const client = new Discord.Client()
+const token = config.token
 
 
 client.on('ready', () => {
-  console.log('I am ready!');
-});
+  console.log('I am ready!')
+})
 
 
 client.on('message', message => {
@@ -18,7 +18,7 @@ client.on('message', message => {
 
   if (message.content === `${config.prefix}ok`)
     message.channel.send("", new Discord.Attachment('imgs/ok.png'))
-});
+})
 
 
 client.login(token)
