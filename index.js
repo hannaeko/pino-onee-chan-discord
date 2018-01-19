@@ -9,6 +9,7 @@ const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log('I am ready!')
+  client.user.setActivity('Yuri scientific videos, for science.', {type: 'WATCHING'})
 })
 
 let router = new PinoRouter(client)
