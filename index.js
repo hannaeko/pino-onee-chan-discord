@@ -1,24 +1,20 @@
 const Discord = require('discord.js')
 const config = require('./config')
 
+const PinoRouter = require('./lib/PinoRouter')
+const PinoCommandFilter = require('./lib/PinoCommandFilter')
+const ImagesController = require('./lib/ImagesController')
+
 const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log('I am ready!')
 })
 
-
-client.on('message', message => {
-  console.log(message.author.username, message.content)
-
-  if (message.author.id === client.user.id)
-    return
-
-  if (message.content === `${config.prefix}ok`)
-    message.channel.send("", new Discord.Attachment('imgs/ok.png'))
-  if (message.content === `${config.prefix}flip_table`)
-    message.channel.send("", new Discord.Attachment('imgs/flip_table.gif'))
-})
-
+let router = new PinoRouter(client)
+let images = new ImagesController()
+router.when(new PinoCommandFilter('ok'), images.okHandler)
+router.when(new PinoCommandFilter('flip_table'), images.flipTableHandler)
+router.when(new PinoCommandFilter('vivement'), images.vivementHandler)
 
 client.login(config.apiToken)
