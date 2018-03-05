@@ -17,5 +17,6 @@ let images = new ImagesController()
 router.when(new PinoCommandFilter('ok'), images.okHandler)
 router.when(new PinoCommandFilter('flip_table'), images.flipTableHandler)
 router.when(new PinoCommandFilter('vivement'), images.vivementHandler)
+router.when(new PinoCommandFilter('baka'), images.bakaHandler)
 
 client.login(config.apiToken)
