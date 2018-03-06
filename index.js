@@ -5,11 +5,14 @@ const PinoRouter = require('./lib/PinoRouter')
 const PinoCommandFilter = require('./lib/PinoCommandFilter')
 const ImagesController = require('./lib/ImagesController')
 
+const PinoLogger = require('./lib/PinoLogger')
+
 const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log('I am ready!')
   client.user.setActivity('Yuri scientific videos, for science.', {type: 'WATCHING'})
+  PinoLogger.init(client, config.logServer, config.logChannel)
 })
 
 let router = new PinoRouter(client)
