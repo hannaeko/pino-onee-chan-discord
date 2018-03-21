@@ -4,6 +4,7 @@ const config = require('./config')
 const PinoRouter = require('./lib/PinoRouter')
 const PinoCommandFilter = require('./lib/PinoCommandFilter')
 const ImagesController = require('./lib/ImagesController')
+const BastonController = require('./lib/BastonController')
 
 const PinoLogger = require('./lib/PinoLogger')
 
@@ -16,11 +17,14 @@ client.on('ready', () => {
 })
 
 let router = new PinoRouter(client)
+let baston = new BastonController()
 let images = new ImagesController()
+
 router.when(new PinoCommandFilter('ok'), images.okHandler)
 router.when(new PinoCommandFilter('flip_table'), images.flipTableHandler)
 router.when(new PinoCommandFilter('vivement'), images.vivementHandler)
 router.when(new PinoCommandFilter('baka'), images.bakaHandler)
 router.when(new PinoCommandFilter('police'), images.callingThePoliceHandler)
+router.when(new PinoCommandFilter('baston'), baston.bastonHandler)
 
 client.login(config.apiToken)
