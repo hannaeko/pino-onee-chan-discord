@@ -26,5 +26,6 @@ router.when(new PinoCommandFilter('vivement'), images.vivementHandler)
 router.when(new PinoCommandFilter('baka'), images.bakaHandler)
 router.when(new PinoCommandFilter('police'), images.callingThePoliceHandler)
 router.when(new PinoCommandFilter('baston'), baston.bastonHandler.bind(baston))
+router.when(new PinoCommandFilter('cast'), baston.castHandler.bind(baston))
 
 client.login(config.apiToken)
