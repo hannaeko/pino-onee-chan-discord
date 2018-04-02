@@ -27,6 +27,7 @@ router.when(new PinoCommandFilter('baka', 'It\'s not that I like you or anything
 router.when(new PinoCommandFilter('police', 'That. Is. Not. Legal.'), images.callingThePoliceHandler)
 router.when(new PinoCommandFilter('baston', 'FAITO~~', '[target]'), baston.bastonHandler.bind(baston))
 router.when(new PinoCommandFilter('cast', 'Aren\'t you a wizzard my friend?', '[target] spell'), baston.castHandler.bind(baston))
+router.when(new PinoCommandFilter('pram', 'PRAM'), images.pramHandler)
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
 
 client.login(config.apiToken)
