@@ -5,6 +5,7 @@ const PinoRouter = require('./lib/PinoRouter')
 const PinoCommandFilter = require('./lib/PinoCommandFilter')
 const ImagesController = require('./lib/ImagesController')
 const BastonController = require('./lib/BastonController')
+const DefinitionController = require('./lib/DefinitionController')
 
 const PinoLogger = require('./lib/PinoLogger')
 
@@ -19,6 +20,7 @@ client.on('ready', () => {
 let router = new PinoRouter(client)
 let baston = new BastonController()
 let images = new ImagesController()
+let define = new DefinitionController()
 
 router.when(new PinoCommandFilter('ok', 'cordialement, okay'), images.okHandler)
 router.when(new PinoCommandFilter('flip_table', 'FUCK THAT SHIT'), images.flipTableHandler)
@@ -29,6 +31,7 @@ router.when(new PinoCommandFilter('pic', 'Random pic from danbooru.', '[...tags]
 router.when(new PinoCommandFilter('baston', 'FAITO~~', '[target]'), baston.bastonHandler.bind(baston))
 router.when(new PinoCommandFilter('cast', 'Aren\'t you a wizzard my friend?', '[target] spell'), baston.castHandler.bind(baston))
 router.when(new PinoCommandFilter('pram', 'PRAM'), images.pramHandler)
+router.when(new PinoCommandFilter('define', 'Define some word', 'word'), define.urbanHandler)
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
 
 client.login(config.apiToken)
