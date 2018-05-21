@@ -37,7 +37,7 @@ router.when(new PinoCommandFilter('baston', 'FAITO~~', '[target]'), baston.basto
 router.when(new PinoCommandFilter('cast', 'Aren\'t you a wizzard my friend?', '[target] spell'), baston.castHandler.bind(baston))
 router.when(new PinoCommandFilter('pram', 'PRAM'), images.pramHandler)
 router.when(new PinoCommandFilter('define', 'Define some word', 'word'), define.urbanHandler.bind(define))
-router.when(new PinoCommandFilter('d4rk', 'Display your pseudo but d4rk3r.'), cooltext.darkPseudoHandler)
+router.when(new PinoCommandFilter('d4rk', 'Display your pseudo but d4rk3r.', '[pseudo]'), cooltext.darkPseudoHandler)
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
 router.when(new PinoRegexFilter(/(nep\s*){2}/gi), reaction.nepNepHandler)
 router.when(new PinoRegexFilter(/^~delete/gi), reaction.deleteHandler)
