@@ -3,9 +3,11 @@ const config = require('./config')
 
 const PinoRouter = require('./lib/PinoRouter')
 const PinoCommandFilter = require('./lib/PinoCommandFilter')
+const PinoRegexFilter = require('./lib/PinoRegexFilter')
 const ImagesController = require('./lib/ImagesController')
 const BastonController = require('./lib/BastonController')
 const DefinitionController = require('./lib/DefinitionController')
+const ReactionController = require('./lib/ReactionController')
 
 const PinoLogger = require('./lib/PinoLogger')
 
@@ -21,6 +23,7 @@ let router = new PinoRouter(client)
 let baston = new BastonController()
 let images = new ImagesController()
 let define = new DefinitionController(client)
+let reaction = new ReactionController()
 
 router.when(new PinoCommandFilter('ok', 'cordialement, okay'), images.okHandler)
 router.when(new PinoCommandFilter('flip_table', 'FUCK THAT SHIT'), images.flipTableHandler)
@@ -33,5 +36,7 @@ router.when(new PinoCommandFilter('cast', 'Aren\'t you a wizzard my friend?', '[
 router.when(new PinoCommandFilter('pram', 'PRAM'), images.pramHandler)
 router.when(new PinoCommandFilter('define', 'Define some word', 'word'), define.urbanHandler.bind(define))
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
+router.when(new PinoRegexFilter(/(nep\s*){2}/gi), reaction.nepNepHandler)
+router.when(new PinoRegexFilter(/^~delete/gi), reaction.deleteHandler)
 
 client.login(config.apiToken)
