@@ -40,6 +40,6 @@ router.when(new PinoCommandFilter('define', 'Define some word', 'word'), define.
 router.when(new PinoCommandFilter('d4rk', 'Display your pseudo but d4rk3r.', '[pseudo]'), cooltext.darkPseudoHandler)
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
 router.when(new PinoRegexFilter(/(nep\s*){2}/gi), reaction.nepNepHandler)
-router.when(new PinoRegexFilter(/^~delete/gi), reaction.deleteHandler)
+router.when(new PinoRegexFilter(/was deleted$/gi), reaction.deleteHandler)
 
 client.login(config.apiToken)
