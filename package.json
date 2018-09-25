@@ -12,6 +12,7 @@
     "bufferutil": "^3.0.3",
     "discord.js": "^11.3.0",
     "erlpack": "discordapp/erlpack",
+    "figlet": "^1.2.0",
     "gm": "^1.23.1",
     "libsodium-wrappers": "^0.5.4",
     "node-opus": "^0.2.7",
