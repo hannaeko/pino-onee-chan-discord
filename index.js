@@ -45,5 +45,6 @@ router.when(new PinoCommandFilter('salt', 'Salt', '@Someone'), images.saltHandle
 router.when(new PinoCommandFilter('?', 'Display help.'), PinoCommandFilter.helpHandler)
 router.when(new PinoRegexFilter(/(nep\s*){2}/gi), reaction.nepNepHandler)
 router.when(new PinoRegexFilter(/was deleted$/gi), reaction.deleteHandler)
+router.when(new PinoRegexFilter(/^deux$/gi), reaction.deuxHandler)
 
 client.login(config.apiToken)
