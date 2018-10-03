@@ -9,6 +9,7 @@ const BastonController = require('./lib/BastonController')
 const DefinitionController = require('./lib/DefinitionController')
 const ReactionController = require('./lib/ReactionController')
 const CoolTextController = require('./lib/CoolTextController')
+const PinoSchedule = require('./lib/PinoSchedule')
 
 const PinoLogger = require('./lib/PinoLogger')
 
@@ -18,6 +19,7 @@ client.on('ready', () => {
   console.log('I am ready!')
   client.user.setActivity('Yuri scientific videos, for science.', {type: 'WATCHING'})
   PinoLogger.init(client, config.logServer, config.logChannel, config.enableChannelLog)
+  new PinoSchedule(client)
 })
 
 let router = new PinoRouter(client)
