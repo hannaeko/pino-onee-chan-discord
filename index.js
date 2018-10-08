@@ -35,6 +35,7 @@ router.when(new PinoCommandFilter('vivement', 'hu hu hu, I really hope that tomo
 router.when(new PinoCommandFilter('baka', 'It\'s not that I like you or anything, b-b-baka!'), images.bakaHandler)
 router.when(new PinoCommandFilter('police', 'That. Is. Not. Legal.'), images.callingThePoliceHandler)
 router.when(new PinoCommandFilter('pic', 'Random pic from danbooru.', '[...tags]'), images.danbooruHandler)
+router.when(new PinoCommandFilter('zpic', 'Random pic from zero chan (experimental).', '[...query]'), images.zeroChanHandler)
 router.when(new PinoCommandFilter('baston', 'FAITO~~', '[target]'), baston.bastonHandler.bind(baston))
 router.when(new PinoCommandFilter('cast', 'Aren\'t you a wizzard my friend?', '[target] spell'), baston.castHandler.bind(baston))
 router.when(new PinoCommandFilter('pram', 'PRAM'), images.pramHandler)
