@@ -1,4 +1,12 @@
 module.exports = {
   prefix: '!',
-  apiToken: ''
+  apiToken: '',
+  logServer: '',
+  logChannel: '',
+  enableChannelLog: false,
+  scheduler: {
+    guild: '',
+    channel: '',
+  },
+  saltBaseUrl: '',
 }
